@@ -85,9 +85,9 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'test',
+        'NAME': 'overwatchhub',
 
-        'USER': 'test',
+        'USER': 'turnermb',
 
         'PASSWORD': 'test',
 
