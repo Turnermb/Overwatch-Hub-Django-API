@@ -87,7 +87,7 @@ DATABASES = {
 
         'NAME': 'overwatchhub',
 
-        'USER': 'turnermb',
+        'USER': 'postgres',
 
         'PASSWORD': 'test',
 
