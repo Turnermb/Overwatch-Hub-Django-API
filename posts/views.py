@@ -38,3 +38,37 @@ class IndexView(View):
         data = json.loads(serialize("json", [post]))
         # Send JSON response
         return JsonResponse(data, safe=False)
+
+class SinglePostView(View):
+    # Show 1 post
+    def get (self, request, id):
+        # Get the post
+        post = Post.objects.get(id=id)
+        # Serialize and turn into dictionary
+        data = json.loads(serialize("json", [post]))
+        # Send JSON response
+        return JsonResponse(data, safe=False)
+
+    # Update turtle
+    def put (self, request, id):
+        # Get the body
+        body = GetBody(request)
+        # Update body
+        Post.objects.filter(id=id).update(**body)
+        # Query for post
+        post = Post.objects.get(id=id)
+        # Serialize and turn into dictionary
+        data = json.loads(serialize("json", [post]))
+        # Return JSON response
+        return JsonResponse(data, safe=False)
+
+    def delete (self, request, id):
+        # Query post
+        post = Post.objects.get(id=id)
+        # Delete post
+        post.delete()
+        # Serialize and turn into dictionary
+        data = json.loads(serialize("json", [post]))
+        # Return JSON response
+        return JsonResponse(data, safe=False)
+
